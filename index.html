@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta Secreta by myeya</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+
+    .screen {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .password-screen {
+      flex-direction: column;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .key {
+      background-color: #f8bbd0;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .key:hover {
+      background-color: #f48fb1;
+    }
+
+    .input-display {
+      font-size: 24px;
+      margin-top: 20px;
+      letter-spacing: 8px;
+    }
+
+    .notepad {
+      background-color: #fff0f6;
+      border: 3px solid #f8bbd0;
+      padding: 40px;
+      border-radius: 25px;
+      width: 95%;
+      max-width: 800px;
+      height: 90vh;
+      overflow-y: auto;
+      text-align: left;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      line-height: 1.8;
+      font-size: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    /* 🔥 CUADROS PARA FOTOS */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .photo-box {
+      width: 100%;
+      height: 150px;
+      border: 3px dashed #f48fb1;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #f48fb1;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div id="passwordScreen" class="screen password-screen active">
+  <h2>🔒 Enter password</h2>
+  <div class="input-display" id="inputDisplay">••••</div>
+  <div class="keypad">
+    <button class="key" onclick="enterDigit('1')">1</button>
+    <button class="key" onclick="enterDigit('2')">2</button>
+    <button class="key" onclick="enterDigit('3')">3</button>
+    <button class="key" onclick="enterDigit('4')">4</button>
+    <button class="key" onclick="enterDigit('5')">5</button>
+    <button class="key" onclick="enterDigit('6')">6</button>
+    <button class="key" onclick="enterDigit('7')">7</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
+    <button class="key" onclick="enterDigit('8')">8</button>
+    <div></div>
+    <button class="key" onclick="enterDigit('0')">0</button>
+    <div></div>
+  </div>
+</div>
+
+<div id="notepadScreen" class="screen">
+  <div class="notepad">
+    <h3>📅 Todo inicio un 17/09/2025 y hoy 14/02/26 </h3>
+    <h4>💌 Mi Querida Luu :3 </h4>
+
+    <p>
+     Hola, Luuu he estado pensando muchísimo en nosotros estos días.
+    </p>
+    <p>
+     Desde que terminamos no he podido dejar de recordar todo lo que vivimos y lo inmensamente feliz que me hiciste, Luu :3. Contigo cada momento 
+     tenía un brillo diferente, como si todo fuera más bonito solo por el hecho de estar a tu lado. Guardo cada recuerdo como un tesoro, porque 
+     fueron momentos reales, sinceros y llenos de amor.
+    </p>
+    <p>
+     Extraño esas cosas que parecen pequeñas, pero que para mí lo eran todo… cuando nos sentábamos en el parque y hablábamos 
+     sin importar el tiempo, cuando comíamos chifa en tu casa riéndonos por tonterías, cuando me mirabas de esa forma que me 
+     hacía sentir el chico más afortunado del mundo. Incluso extraño esos momentos en los que te molestabas conmigo cuando hacía 
+     cosas solo para fastidiarte un poquito, porque hasta en eso había cariño. Extraño nuestros silencios, nuestros abrazos 
+     largos, la forma en que encajábamos cuando estábamos a solas y el mundo desaparecía.
+    </p>
+    <p>
+     Luu, en serio no quiero que el tiempo decida por nosotros. Lo que tuvimos no fue algo común ni pasajero. Fue algo   
+     que marcó mi vida. Yo sé que cometí errores, y no quiero justificar nada ni hacer como si no hubieran dolido. Sé 
+     que hay cosas que no se perdonan fácilmente. Pero tampoco quiero que mis errores borren todo lo hermoso que construimos juntos. 
+    </p>
+    <p>
+     No te escribo solo por nostalgia. Te escribo porque todavía te quiero con la misma intensidad, porque todavía pienso en ti 
+     antes de dormir, porque todavía mi corazón reacciona cuando escucho algo que me recuerda a nosotros. Y aunque me dijiste que 
+     no me extrañabas, yo sigo sintiendo en el fondo que lo nuestro no se apagó del todo 
+     porque yo creo que lo que fue verdadero no desaparece así de fácil.
+    </p>
+    <p>
+     He reflexionado mucho. He entendido cosas que antes no veía. He aceptado mis errores y estoy dispuesto a cambiar de 
+     verdad, no con palabras bonitas, sino con acciones, con hechos, con madurez. Si me dieras la oportunidad, sería para empezar 
+     mejor, para cuidarte más, para valorarte como siempre debí hacerlo.
+    </p>
+    <p>
+     No quiero perder la posibilidad de volver a abrazarte, de volver a escuchar tu risa cerca de mí, de volver a sentir esa paz que 
+     solo encontraba contigo. No quiero que nuestra historia termine cuando aún siento que puede transformarse en algo más fuerte, más 
+     consciente y más bonito.
+    </p>
+    <p>
+    Por eso hoy te hablo desde lo más sincero que tengo dentro…
+    ¿Aún podrías darme una nueva oportunidad para demostrarte que puedo cambiar, que puedo ser mejor para ti y 
+    que regresar podría cambiar el destino de nuestras vidas? 
+    </p>
+    <p>
+    Pase lo que pase, siempre voy a agradecer haber coincidido contigo. Pero si aún hay una pequeña puerta abierta en tu corazón, yo 
+    estoy dispuesto a cruzarla y luchar por nosotros, Luu ♡
+    </p>
+
+
+    <!-- 🔥 9 CUADROS PARA FOTOS -->
+    <div class="photo-grid">
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.24 AM.jpeg" alt="Foto 1">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.25 AM.jpeg" alt="Foto 2">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.25 AM (1).jpeg" alt="Foto 3">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.26 AM.jpeg"alt="Foto 4">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.25 AM (3).jpeg" alt="Foto 5">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.26.06 AM.jpeg"alt="Foto 6">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.27 AM.jpeg" alt="Foto 7">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.26 AM (2).jpeg" alt="Foto 8">
+      </div>
+
+      <div class="photo-box">
+        <img src="C:\Users\GILMAR EDY\Downloads\gonza\WhatsApp Image 2026-02-13 at 5.25.26 AM (1).jpeg" alt="Foto 9">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const correctPassword = '1709';
+  let input = '';
+
+  function enterDigit(digit) {
+    if (input.length < 4) {
+      input += digit;
+    }
+
+    const display = document.getElementById('inputDisplay');
+    display.textContent = input.padEnd(4, '•');
+
+    if (input.length === 4) {
+      if (input === correctPassword) {
+        document.getElementById('passwordScreen').classList.remove('active');
+        document.getElementById('notepadScreen').classList.add('active');
+      } else {
+        alert('Contraseña incorrecta, intenta de nuevo');
+        input = '';
+        display.textContent = '••••';
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
